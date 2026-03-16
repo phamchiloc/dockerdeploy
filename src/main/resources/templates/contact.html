@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Phạm Chí Lộc</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover { color: #f1c40f; }
+        nav a.active { color: #f1c40f; border-bottom: 2px solid #f1c40f; padding-bottom: 4px; }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+            padding: 10px 22px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .back-btn:hover { background: #3d5166; }
+
+        h2.section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .contact-item:last-child { border-bottom: none; }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .icon-email   { background: #fde8e8; color: #e74c3c; }
+        .icon-phone   { background: #e8f8e8; color: #27ae60; }
+        .icon-address { background: #e8f0fe; color: #3498db; }
+        .icon-github  { background: #eee;    color: #2c3e50; }
+        .icon-fb      { background: #e8f0fe; color: #2980b9; }
+        .icon-uni     { background: #fef9e7; color: #f39c12; }
+
+        .contact-detail .label {
+            font-size: 0.78rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .contact-detail .value {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .contact-detail a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .contact-detail a:hover { text-decoration: underline; }
+
+        .card.full-width {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+        }
+
+        .card.full-width h3 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        .card.full-width p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-group a {
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .btn-email  { background: #e74c3c; color: white; }
+        .btn-github { background: white;   color: #2c3e50; }
+        .btn-fb     { background: #f1c40f; color: #2c3e50; }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 th:text="${name != null and !#strings.isEmpty(name) ? #strings.toUpperCase(name) : 'PORTFOLIO'}">PHẠM CHÍ LỘC</h1>
+    <p th:text="${tagline}">Web Developer | Backend Developer</p>
+</header>
+
+<nav>
+    <a th:href="@{/}">Trang chủ</a>
+    <a th:href="@{/about}">Giới thiệu</a>
+    <a th:href="@{/skills}">Kỹ năng</a>
+    <a th:href="@{/contact}" class="active">Liên hệ</a>
+    <a th:href="@{/admin}">Chỉnh sửa</a>
+</nav>
+
+<div class="container">
+
+    <a th:href="@{/}" class="back-btn">← Quay lại</a>
+
+    <h2 class="section-title">Thông tin liên hệ</h2>
+
+    <div class="contact-grid">
+
+        <!-- Thong tin ca nhan -->
+        <div class="card">
+            <h3>Thông tin cá nhân</h3>
+
+            <div class="contact-item">
+                <div class="contact-icon icon-email">✉</div>
+                <div class="contact-detail">
+                    <div class="label">Email</div>
+                    <div class="value">
+                        <a th:href="'mailto:' + ${email}" th:text="${email}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon icon-phone">☎</div>
+                <div class="contact-detail">
+                    <div class="label">Số điện thoại</div>
+                    <div class="value" th:text="${phone}"></div>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon icon-address">📍</div>
+                <div class="contact-detail">
+                    <div class="label">Địa chỉ</div>
+                    <div class="value" th:text="${address}"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mang xa hoi & Truong -->
+        <div class="card">
+            <h3>Mạng xã hội & Học tập</h3>
+
+            <div class="contact-item">
+                <div class="contact-icon icon-github">⌥</div>
+                <div class="contact-detail">
+                    <div class="label">GitHub</div>
+                    <div class="value">
+                        <a th:href="'https://' + ${github}" target="_blank" th:text="${github}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon icon-fb">f</div>
+                <div class="contact-detail">
+                    <div class="label">Facebook</div>
+                    <div class="value">
+                        <a th:href="'https://' + ${facebook}" target="_blank" th:text="${facebook}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon icon-uni">🎓</div>
+                <div class="contact-detail">
+                    <div class="label">Trường</div>
+                    <div class="value" th:text="${university}"></div>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon icon-uni">📚</div>
+                <div class="contact-detail">
+                    <div class="label">Chuyên ngành</div>
+                    <div class="value" th:text="${major}"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Banner lien he nhanh -->
+        <div class="card full-width">
+            <h3>Liên hệ nhanh</h3>
+            <p>
+                Nếu bạn muốn hợp tác, trao đổi về dự án, hoặc chỉ đơn giản là muốn kết nối —
+                đừng ngại liên hệ với tôi qua các kênh bên dưới. Tôi luôn sẵn sàng lắng nghe!
+            </p>
+            <div class="btn-group">
+                <a th:href="'mailto:' + ${email}" class="btn-email">✉ Gửi Email</a>
+                <a th:href="'https://' + ${github}" target="_blank" class="btn-github">⌥ GitHub</a>
+                <a th:href="'https://' + ${facebook}" target="_blank" class="btn-fb">f Facebook</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Phạm Chí Lộc - Portfolio</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giới thiệu bản thân</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+        }
+
+        header{
+            background:#2c3e50;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#34495e;
+            padding:10px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            margin:0 15px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:#f1c40f;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            padding:40px;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            margin-bottom:25px;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .avatar{
+            width:150px;
+            border-radius:50%;
+        }
+
+        footer{
+            background:#2c3e50;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>PHẠM CHÍ LỘC</h1>
+    <p>Web Developer | Backend Developer</p>
+</header>
+
+<nav>
+    <a href="#home">Trang chủ</a>
+    <a href="/about">Giới thiệu</a>
+    <a href="/skills">Kỹ năng</a>
+    <a href="/contact">Liên hệ</a>
+</nav>
+
+<div class="container">
+
+    <div id="home" class="card" style="text-align:center;">
+        <img src="https://via.placeholder.com/150" class="avatar">
+        <h2>Xin chào 👋</h2>
+        <p>Tôi là sinh viên ngành Công nghệ thông tin, yêu thích lập trình web và phát triển hệ thống backend.</p>
+    </div>
+
+    <div id="about" class="card">
+        <h2>Thông tin cá nhân</h2>
+        <p><b>Họ tên:</b> Phạm Chí Lộc</p>
+        <p><b>Ngành học:</b> Công nghệ thông tin</p>
+        <p><b>Trường:</b> HUTECH</p>
+        <p><b>Định hướng:</b> Backend Developer</p>
+    </div>
+
+    <div id="skills" class="card">
+        <h2>Kỹ năng</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Java Spring Boot</li>
+            <li>PHP Laravel</li>
+            <li>MySQL / SQL Server</li>
+            <li>Docker</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Dự án</h2>
+        <ul>
+            <li>Website bán quần áo bóng đá</li>
+            <li>Hệ thống quản lý sinh viên</li>
+            <li>Web mã hóa thuật toán (Flask)</li>
+        </ul>
+    </div>
+
+    <div id="contact" class="card">
+        <h2>Liên hệ</h2>
+        <p>Email: phamloc629@gmail.com</p>
+        <p>Github: github.com/phamchiloc</p>
+        <p>Facebook: facebook.com/phamchiloc</p>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Phạm Chí Lộc - Portfolio</p>
+</footer>
+
+</body>
+</html>

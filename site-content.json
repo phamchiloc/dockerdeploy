@@ -1,0 +1,44 @@
+{
+  "name" : "Phạm Chí Lộc",
+  "tagline" : "Web Developer | Backend Developer",
+  "roleLine" : "Sinh viên Công nghệ Phần mềm · HUTECH K22",
+  "dob" : "06/02/2004",
+  "gender" : "Nam",
+  "hometown" : "TP. Hồ Chí Minh",
+  "university" : "Đại học Công nghệ TP.HCM (HUTECH)",
+  "major" : "Công nghệ Phần mềm",
+  "course" : "K22",
+  "email" : "phamloc629@gmail.com",
+  "phone" : "0832090304",
+  "address" : "TP. Hồ Chí Minh, Việt Nam",
+  "github" : "github.com/phamchiloc",
+  "facebook" : "facebook.com/phamchiloc",
+  "goal" : "Trở thành một Backend Developer chuyên nghiệp, có khả năng xây dựng các hệ thống web hiệu năng cao, bảo mật và dễ bảo trì. Tôi muốn đóng góp vào các dự án thực tế và không ngừng học hỏi công nghệ mới.",
+  "hobbies" : [ "Lập trình và xây dựng các dự án cá nhân", "Tìm hiểu công nghệ mới (Cloud, Microservices)", "Đọc sách kỹ thuật và xem tutorial", "Chơi thể thao" ],
+  "projects" : [ "Website bán quần áo bóng đá - Spring Boot + MySQL", "Hệ thống quản lý sinh viên - Java + SQL Server", "Web mã hóa thuật toán - Python Flask" ],
+  "skills" : [ {
+    "name" : "Java Spring Boot",
+    "level" : 80,
+    "desc" : "Xây dựng REST API, MVC web app, tích hợp Database với JPA/Hibernate, bảo mật với Spring Security."
+  }, {
+    "name" : "HTML / CSS / JavaScript",
+    "level" : 85,
+    "desc" : "Thiết kế giao diện web responsive, hiệu ứng CSS, xử lý sự kiện DOM với JavaScript."
+  }, {
+    "name" : "PHP Laravel",
+    "level" : 70,
+    "desc" : "Phát triển ứng dụng web MVC, Eloquent ORM, Blade template, RESTful routing."
+  }, {
+    "name" : "MySQL / SQL Server",
+    "level" : 75,
+    "desc" : "Thiết kế database, viết truy vấn SQL phức tạp, tối ưu hóa index và join."
+  }, {
+    "name" : "Docker",
+    "level" : 65,
+    "desc" : "Đóng gói ứng dụng thành container, viết Dockerfile, dùng Docker Compose để quản lý multi-service."
+  }, {
+    "name" : "Git / GitHub",
+    "level" : 80,
+    "desc" : "Quản lý source code, làm việc với branch, pull request, merge conflict trong dự án nhóm."
+  } ]
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỹ năng - Phạm Chí Lộc</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover { color: #f1c40f; }
+        nav a.active { color: #f1c40f; border-bottom: 2px solid #f1c40f; padding-bottom: 4px; }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 40px;
+        }
+
+        h2.section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .skill-percent {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transition: width 1s ease;
+        }
+
+        .skill-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            padding: 10px 22px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .back-btn:hover { background: #3d5166; }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 th:text="${#strings.toUpperCase(name)}">PHẠM CHÍ LỘC</h1>
+    <p th:text="${tagline}">Web Developer | Backend Developer</p>
+</header>
+
+<nav>
+    <a th:href="@{/}">Trang chủ</a>
+    <a th:href="@{/about}">Giới thiệu</a>
+    <a th:href="@{/skills}" class="active">Kỹ năng</a>
+    <a th:href="@{/contact}">Liên hệ</a>
+    <a th:href="@{/admin}">Chỉnh sửa</a>
+</nav>
+
+<div class="container">
+
+    <a th:href="@{/}" class="back-btn">← Quay lại</a>
+
+    <h2 class="section-title">Kỹ năng của tôi</h2>
+
+    <div class="skill-card" th:each="skill : ${skills}">
+        <div class="skill-header">
+            <span class="skill-name" th:text="${skill.name}"></span>
+            <span class="skill-percent" th:text="${skill.level} + '%'"></span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" th:style="'width:' + ${skill.level} + '%'"></div>
+        </div>
+        <p class="skill-desc" th:text="${skill.desc}"></p>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Phạm Chí Lộc - Portfolio</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giới thiệu bản thân</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+        }
+
+        header{
+            background:#2c3e50;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#34495e;
+            padding:10px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            margin:0 15px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:#f1c40f;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            padding:40px;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            margin-bottom:25px;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .avatar{
+            width:150px;
+            border-radius:50%;
+        }
+
+        footer{
+            background:#2c3e50;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <h1 th:text="${#strings.toUpperCase(name)}"></h1>
+    <p th:text="${tagline}"></p>
+</header>
+
+<nav>
+    <a th:href="@{/}">Trang chủ</a>
+    <a th:href="@{/about}">Giới thiệu</a>
+    <a th:href="@{/skills}">Kỹ năng</a>
+    <a th:href="@{/contact}">Liên hệ</a>
+    <a th:href="@{/admin}">Chỉnh sửa</a>
+</nav>
+
+<div class="container">
+
+    <div id="home" class="card" style="text-align:center;">
+        <img src="https://via.placeholder.com/150" class="avatar" alt="avatar">
+        <h2>Xin chào 👋</h2>
+        <p>
+            Tôi là sinh viên ngành <b th:text="${major}"></b>,
+            học tại <b th:text="${university}"></b>,
+            yêu thích lập trình web và phát triển hệ thống backend.
+        </p>
+    </div>
+
+    <div id="about" class="card">
+        <h2>Thông tin cá nhân</h2>
+        <p><b>Họ tên:</b> <span th:text="${name}"></span></p>
+        <p><b>Ngành học:</b> <span th:text="${major}"></span></p>
+        <p><b>Trường:</b> <span th:text="${university}"></span></p>
+        <p><b>Định hướng:</b> <span th:text="${roleLine != null and !#strings.isEmpty(roleLine) ? roleLine : tagline}"></span></p>
+    </div>
+
+    <div id="skills" class="card">
+        <h2>Kỹ năng</h2>
+        <ul>
+            <li th:each="skill : ${skills}" th:text="${skill.name}"></li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Dự án</h2>
+        <ul>
+            <li th:each="project : ${projects}" th:text="${project}"></li>
+        </ul>
+    </div>
+
+    <div id="contact" class="card">
+        <h2>Liên hệ</h2>
+        <p>Email: <span th:text="${email}"></span></p>
+        <p>Github: <span th:text="${github}"></span></p>
+        <p>Facebook: <span th:text="${facebook}"></span></p>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Phạm Chí Lộc - Portfolio</p>
+</footer>
+
+</body>
+</html>
