@@ -1,0 +1,6 @@
+# Repo root ignores (project lives in ./phamchiloc)
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

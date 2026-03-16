@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa nội dung</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover { color: #f1c40f; }
+        nav a.active { color: #f1c40f; border-bottom: 2px solid #f1c40f; padding-bottom: 4px; }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .field label {
+            font-size: 0.85rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .field input, .field textarea {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 0.95rem;
+        }
+
+        .field textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .hint {
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 22px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover { background: #3d5166; }
+
+        .notice {
+            margin-bottom: 14px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: #e8f0fe;
+            color: #2c3e50;
+            border: 1px solid #cfe0ff;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CHỈNH SỬA NỘI DUNG</h1>
+    <p>Cập nhật thông tin hiển thị trên website</p>
+</header>
+
+<nav>
+    <a th:href="@{/}">Trang chủ</a>
+    <a th:href="@{/about}">Giới thiệu</a>
+    <a th:href="@{/skills}">Kỹ năng</a>
+    <a th:href="@{/contact}">Liên hệ</a>
+    <a th:href="@{/admin}" class="active">Chỉnh sửa</a>
+</nav>
+
+<div class="container">
+
+    <div class="notice" th:if="${saved}">
+        Đã lưu thành công. Mở lại các trang để xem cập nhật.
+    </div>
+
+    <form th:action="@{/admin}" method="post" th:object="${form}">
+
+        <div class="card">
+            <h3>Thông tin chung</h3>
+            <div class="row">
+                <div class="field">
+                    <label>Họ và tên</label>
+                    <input type="text" th:field="*{name}">
+                </div>
+                <div class="field">
+                    <label>Tagline (dòng dưới tên)</label>
+                    <input type="text" th:field="*{tagline}">
+                </div>
+            </div>
+            <div class="field">
+                <label>Dòng giới thiệu (trang About)</label>
+                <input type="text" th:field="*{roleLine}">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Giới thiệu</h3>
+            <div class="row">
+                <div class="field">
+                    <label>Ngày sinh</label>
+                    <input type="text" th:field="*{dob}">
+                </div>
+                <div class="field">
+                    <label>Giới tính</label>
+                    <input type="text" th:field="*{gender}">
+                </div>
+                <div class="field">
+                    <label>Quê quán</label>
+                    <input type="text" th:field="*{hometown}">
+                </div>
+                <div class="field">
+                    <label>Trường</label>
+                    <input type="text" th:field="*{university}">
+                </div>
+                <div class="field">
+                    <label>Chuyên ngành</label>
+                    <input type="text" th:field="*{major}">
+                </div>
+                <div class="field">
+                    <label>Khóa học</label>
+                    <input type="text" th:field="*{course}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Mục tiêu nghề nghiệp</label>
+                <textarea th:field="*{goal}"></textarea>
+            </div>
+
+            <div class="field">
+                <label>Sở thích (mỗi dòng 1 mục)</label>
+                <textarea th:field="*{hobbiesText}"></textarea>
+            </div>
+
+            <div class="field">
+                <label>Dự án (mỗi dòng 1 mục)</label>
+                <textarea th:field="*{projectsText}"></textarea>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Liên hệ</h3>
+            <div class="row">
+                <div class="field">
+                    <label>Email</label>
+                    <input type="text" th:field="*{email}">
+                </div>
+                <div class="field">
+                    <label>Số điện thoại</label>
+                    <input type="text" th:field="*{phone}">
+                </div>
+                <div class="field">
+                    <label>Địa chỉ</label>
+                    <input type="text" th:field="*{address}">
+                </div>
+                <div class="field">
+                    <label>GitHub</label>
+                    <input type="text" th:field="*{github}">
+                </div>
+                <div class="field">
+                    <label>Facebook</label>
+                    <input type="text" th:field="*{facebook}">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Kỹ năng</h3>
+            <div class="field">
+                <label>Danh sách kỹ năng (mỗi dòng: Tên|%|Mô tả)</label>
+                <textarea th:field="*{skillsText}"></textarea>
+                <div class="hint">Ví dụ: Java Spring Boot|80|Xây dựng REST API...</div>
+            </div>
+        </div>
+
+        <button class="btn" type="submit">Lưu thay đổi</button>
+
+    </form>
+
+</div>
+
+<footer>
+    <p>© 2026 Phạm Chí Lộc - Portfolio</p>
+</footer>
+
+</body>
+</html>

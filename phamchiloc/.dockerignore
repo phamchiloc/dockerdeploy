@@ -1,0 +1,16 @@
+# Maven build outputs
+**/target/
+
+# Legacy folders from earlier restructure
+src_legacy_*/
+target_legacy_*/
+
+# VCS / IDE
+.git/
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
